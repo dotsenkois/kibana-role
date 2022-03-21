@@ -8,4 +8,5 @@
   delegate_to: localhost
 - include_tasks: "download_{{ ansible_facts.pkg_mgr }}.yml"
 - include_tasks: "install_{{ ansible_facts.pkg_mgr }}.yml"
+- include_tasks: "install_python_{{ ansible_facts.pkg_mgr }}.yml"
 - import_tasks: configure.yml

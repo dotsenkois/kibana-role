@@ -1,13 +1,3 @@
-logging:
-  appenders:
-    console_appender:
-      type: console
-      layout:
-        type: pattern
-        highlight: true
-  root:
-    appenders: [console_appender]
-    level: warn
-  loggers:
-    - name: elasticsearch.query
-      level: debug
+server.name: kibana
+server.host: "0"
+elasticsearch.hosts: [ "http://localhost:9200" ]

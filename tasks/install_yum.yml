@@ -1,7 +1,7 @@
 ---
-- name: Install kibana
+- name: Install kibana(YUM)
   become: true
   yum:
-    name: "/tmp/files/kibana-{{ kibana_version }}-x86_64.rpm"
+    name: "/tmp/kibana-{{ kibana_version }}-x86_64.rpm"
     state: present
   notify: restart kibana

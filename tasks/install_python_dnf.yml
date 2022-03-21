@@ -1,0 +1,6 @@
+---
+- name: Install python3(DNF)
+  become: true
+  dnf:
+    name: python3
+    state: latest
