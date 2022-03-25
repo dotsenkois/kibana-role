@@ -1,5 +1,5 @@
 server.port: 5601
-server.host: "127.0.0.1"
+server.host: {{ ansible_facts['default_ipv4']['address'] | default('127.0.0.1') }}
 server.publicBaseUrl: "http://{{ ansible_facts['default_ipv4']['address'] | default('127.0.0.1') }}:5601/"
 
 logging:
