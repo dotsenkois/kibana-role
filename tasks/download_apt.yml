@@ -1,4 +1,9 @@
 ---
+- name: "Check that deb is exists"
+  stat:
+    path: "files/kibana-{{ kibana_version }}-amd64.deb"
+  register: stat_result
+  delegate_to: localhost
 - name: "Download kibana's deb"
   get_url:
     url: "https://artifacts.elastic.co/downloads/kibana/kibana-{{ kibana_version }}-amd64.deb"
