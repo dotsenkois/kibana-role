@@ -1,13 +1,13 @@
 ---
 - name: "Check that kibanas's deb is exists"
   stat:
-    path: "files/kibana-{{kibana_version}}-x86_64.rpm"
+    path: "{{ pkg_tmp_src }}/kibana-{{kibana_version}}-x86_64.rpm"
   register: stat_result
   delegate_to: localhost
 - name: "Download kibana's rpm"
   get_url:
     url: "https://artifacts.elastic.co/downloads/kibana/kibana-{{kibana_version}}-x86_64.rpm"
-    dest: "files/kibana-{{kibana_version}}-x86_64.rpm"
+    dest: "{{ pkg_tmp_src }}/kibana-{{kibana_version}}-x86_64.rpm"
     validate_certs: false
   register: download_kibana
   delegate_to: localhost
@@ -17,6 +17,6 @@
   - kibana_install_type == 'remote'
 - name: Copy kibana to managed node
   copy:
-    src: "files/kibana-{{kibana_version}}-x86_64.rpm"
+    src: "{{ pkg_tmp_src }}/kibana-{{kibana_version}}-x86_64.rpm"
     mode: 0755
     dest: "/tmp/kibana-{{kibana_version}}-x86_64.rpm"
